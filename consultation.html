@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Consultation | CSRInsights</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="top-bar">
+        <div class="container">
+            <a href="login.html" class="client-portal-link">Client Portal Login</a>
+        </div>
+    </div>
+    <div class="main-header container">
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="CSRInsights Logo">
+            <span>CSRInsights</span>
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="consultation.html" class="cta-button">Book a Consultation</a>
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Book Your Free Consultation</h1>
+            </div>
+        </section>
+
+        <section class="page-section">
+            <div class="container content-section">
+                <p style="text-align: center; max-width: 600px; margin: 0 auto 40px auto;">
+                    Ready to discuss your business needs? Please select a time that works for you from the calendar below for a no-obligation 15-minute introductory call.
+                </p>
+
+                <!-- Calendly inline widget start -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/d/cqg-wym-pqj" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <!-- Calendly inline widget end -->
+                
+                <p style="text-align: center; margin-top: 40px;">
+                    If you'd prefer, you can also reach us directly at <a href="mailto:hello@csrinsights.co.uk">hello@csrinsights.co.uk</a> or by calling 01223 123 456.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 CSRInsights. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

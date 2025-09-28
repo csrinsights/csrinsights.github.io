@@ -28,7 +28,7 @@ body {
     padding: 0 20px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.2;
@@ -38,6 +38,7 @@ h1, h2, h3 {
 h1 { font-size: 3rem; }
 h2 { font-size: 2.25rem; text-align: center; margin-bottom: 2rem; }
 h3 { font-size: 1.5rem; }
+h4 { font-size: 1.2rem; }
 
 a {
     color: var(--primary-color);
@@ -81,18 +82,21 @@ a:hover {
     padding-bottom: 15px;
 }
 
+/* --- Updated Logo Styles --- */
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Adjusts space between logo and name */
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 1.5rem;
     color: var(--primary-color);
 }
 
-/* --- LOGO IMAGE SIZE --- */
 .logo img {
-    height: 20px; /* Adjust this value to make your logo bigger or smaller */
-    width: 20px;
-    display: block; /* Helps remove any extra space below the image */
+    height: 40px; 
+    width: auto;
+    display: block;
 }
 
 .main-nav ul {
@@ -118,7 +122,7 @@ a:hover {
 }
 
 .cta-button:hover {
-    background-color: #b3a04f; /* Darker Gold */
+    background-color: #b3a04f;
     color: var(--white-color);
 }
 
@@ -231,6 +235,131 @@ a:hover {
     color: var(--white-color);
 }
 
+/* --- Styles for New Pages --- */
+.page-header {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.8rem;
+    margin: 0;
+}
+
+.page-section {
+    padding: 80px 0;
+}
+
+.page-section.alt-bg {
+    background-color: var(--secondary-color);
+}
+
+.content-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content-section h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.content-section h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.content-section ul {
+    list-style-position: inside;
+    margin-bottom: 1.5rem;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 40px 0;
+}
+
+.values-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.values-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.values-list li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.feature-item {
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+}
+
+.contact-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-details li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.contact-details li i {
+    color: var(--accent-color);
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.contact-form button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
@@ -270,7 +399,7 @@ a:hover {
     }
 
     .cta-button {
-        display: none; /* Hide the main CTA on mobile nav */
+        display: none;
     }
 
     .mobile-menu-toggle {
@@ -280,4 +409,73 @@ a:hover {
     .hero {
         height: 70vh;
     }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Improved Login Page Styles --- */
+
+.login-page-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 160px); /* Adjusts height to fill screen minus header/footer */
+    padding: 40px 20px;
+    background-color: var(--secondary-color); /* Light grey background */
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    background-color: var(--white-color);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.login-container h2 {
+    margin-bottom: 10px;
+}
+
+.login-container p {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.login-form .form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.login-form button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 12px;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 20px;
+    font-size: 0.9rem;
 }
