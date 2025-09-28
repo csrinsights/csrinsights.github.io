@@ -90,8 +90,8 @@ a:hover {
 
 /* --- LOGO IMAGE SIZE --- */
 .logo img {
-    height: 40px; /* Adjust this value to make your logo bigger or smaller */
-    width: auto;
+    height: 20px; /* Adjust this value to make your logo bigger or smaller */
+    width: 20px;
     display: block; /* Helps remove any extra space below the image */
 }
 
