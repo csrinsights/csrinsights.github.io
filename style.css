@@ -1,9 +1,9 @@
 /* --- Global Styles & Variables --- */
 :root {
-    --primary-color: #0A2342; /* Navy Blue */
-    --secondary-color: #F8F9FA; /* Light Grey */
-    --accent-color: #C5B358; /* Muted Gold */
-    --text-color: #333333; /* Dark Grey */
+    --primary-color: #1976D2; /* High-Contrast & Vibrant Blue */
+    --secondary-color: #F8F9FA; /* Light Grey (unchanged) */
+    --accent-color: #F57C00; /* Warm Orange */
+    --text-color: #34495E; /* Dark Slate Blue/Grey */
     --white-color: #FFFFFF;
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Merriweather', serif;
@@ -137,7 +137,8 @@ a:hover {
 
 /* --- Hero Section --- */
 .hero {
-    background-image: linear-gradient(rgba(10, 35, 66, 0.7), rgba(10, 35, 66, 0.7)), url('hero-background.jpg');
+    /* Updated to use the new High-Contrast Blue gradient */
+    background-image: linear-gradient(rgba(25, 118, 210, 0.75), rgba(25, 118, 210, 0.75)), url('hero-background.jpg');
     background-size: cover;
     background-position: center;
     color: var(--white-color);
