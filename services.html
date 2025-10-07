@@ -6,7 +6,7 @@
     <title>Our Services | CSRInsights</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" cros sorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
@@ -25,17 +25,42 @@
         </a>
         <nav class="main-nav">
             <ul>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li class="has-dropdown">
+                    <a href="services.html">Services</a>
+                    <button class="dropdown-toggle" aria-expanded="false" aria-label="Toggle Submenu"></button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-section">
+                            <h4>Accounting & Reporting</h4>
+                            <a href="#">Bookkeeping</a>
+                            <a href="#">Accounting</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>Compliance & Payroll</h4>
+                            <a href="#">Audit Preparation & Support</a>
+                            <a href="#">Payroll Services</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>Financial Management & Strategy</h4>
+                            <a href="#">CFO Services</a>
+                            <a href="#">Financial Planning & Analysis (FP&A)</a>
+                        </div>
+                         <div class="dropdown-section">
+                            <h4>Transaction Services</h4>
+                            <a href="#">M&A  Advisory and Support</a>
+                            <a href="#">Capital & Funding Support</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
             </ul>
         </nav>
-        <a href="consultation.html" class="cta-button">Book a Consultation</a>
         <button id="mobile-menu-toggle" class="mobile-menu-toggle">
             <i class="fas fa-bars"></i>
         </button>
     </div>
 </header>
+
 
     <main>
         <section class="page-header">
