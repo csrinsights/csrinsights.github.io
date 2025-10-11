@@ -3,113 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | CSRInsights</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" cros sorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Our Services - CSRInsights</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-
-<header class="header">
-    <div class="top-bar">
+    <!-- Navigation -->
+    <nav class="navbar">
         <div class="container">
-            <a href="login.html" class="client-portal-link">Client Portal Login</a>
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>CSRInsights</h1>
+                    <p class="tagline">Accounting & Advisory</p>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Our Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="main-header container">
-        <a href="index.html" class="logo">
-            <img src="logo.png" alt="CSRInsights Logo">
-            <span>CSRInsights</span>
-        </a>
-        <nav class="main-nav">
-            <ul>
-                <li class="has-dropdown">
-                    <a href="services.html">Services</a>
-                    <button class="dropdown-toggle" aria-expanded="false" aria-label="Toggle Submenu"></button>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-section">
-                            <h4>Accounting & Reporting</h4>
-                            <a href="#">Bookkeeping</a>
-                            <a href="#">Accounting</a>
-                        </div>
-                        <div class="dropdown-section">
-                            <h4>Compliance & Payroll</h4>
-                            <a href="#">Audit Preparation & Support</a>
-                            <a href="#">Payroll Services</a>
-                        </div>
-                        <div class="dropdown-section">
-                            <h4>Financial Management & Strategy</h4>
-                            <a href="#">CFO Services</a>
-                            <a href="#">Financial Planning & Analysis (FP&A)</a>
-                        </div>
-                         <div class="dropdown-section">
-                            <h4>Transaction Services</h4>
-                            <a href="#">M&A  Advisory and Support</a>
-                            <a href="#">Capital & Funding Support</a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="about.html">About us</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-            </ul>
-        </nav>
-        <button id="mobile-menu-toggle" class="mobile-menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-</header>
+    </nav>
 
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Comprehensive financial solutions designed to help your business succeed</p>
+        </div>
+    </section>
 
-    <main>
-        <section class="services-overview">
-            <div class="container">
-                <h2>Our Core Services</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <i class="fas fa-book"></i>
-                        <h3>Accounting & Reporting</h3>
-                        <p>Bookkeeping</p>
-                        <p>Accounting</p>
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
                     </div>
-                    <div class="service-card">
-                        <i class="fas fa-wallet"></i>
-                        <h3>Compliance & Payroll</h3>
-                        <p>Audit Support</p>
-                        <p>Payroll Services</p>
+                    <h3>Tax Preparation & Planning</h3>
+                    <p>Our tax professionals provide comprehensive tax preparation and strategic planning services. We help individuals and businesses minimize tax liability while ensuring full compliance with current tax laws and regulations.</p>
+                    <ul class="service-features">
+                        <li>Individual & Business Tax Returns</li>
+                        <li>Tax Planning Strategies</li>
+                        <li>IRS Representation</li>
+                        <li>Tax Credits & Deductions</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <div class="service-card">
+                    <h3>Bookkeeping Services</h3>
+                    <p>Keep your financial records accurate and up-to-date with our professional bookkeeping services. We handle all aspects of bookkeeping so you can focus on growing your business.</p>
+                    <ul class="service-features">
+                        <li>Daily Transaction Recording</li>
+                        <li>Bank Reconciliation</li>
+                        <li>Accounts Payable/Receivable</li>
+                        <li>Monthly Financial Reports</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Business Advisory</h3>
+                    <p>Strategic business guidance to help you make informed decisions. Our advisors work closely with you to develop strategies for growth, efficiency, and profitability.</p>
+                    <ul class="service-features">
+                        <li>Strategic Planning</li>
+                        <li>Business Valuation</li>
+                        <li>Cash Flow Management</li>
+                        <li>Growth Strategy Development</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
                         <i class="fas fa-file-invoice-dollar"></i>
-                        <h3>Financial Management & Strategy</h3>
-                        <p>CFO Services</p>
-                        <p>Financial Planning & Analysis (FP&A)</p>
                     </div>
-                    <div class="service-card">
-                        <i class="fas fa-list-check"></i>
-                        <h3>Transaction Services</h3>
-                        <p>Staff augementation</p>
-                        <p>O2C</p>
-                        <p>P2C</p>
+                    <h3>Financial Statements</h3>
+                    <p>Detailed financial reporting and analysis to give you clear insights into your business performance. We prepare accurate statements that help you understand your financial position.</p>
+                    <ul class="service-features">
+                        <li>Balance Sheets</li>
+                        <li>Income Statements</li>
+                        <li>Cash Flow Statements</li>
+                        <li>Financial Analysis & Forecasting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
                     </div>
-                    <div class="service-card">
-                        <i class="fas fa-receipt"></i>
-                        <h3>Billing</h3>
-                        <p>Automated and accurate billing services to ensure timely payments and improve your cash flow.</p>
+                    <h3>Payroll Services</h3>
+                    <p>Efficient and accurate payroll processing that ensures your employees are paid on time and all tax obligations are met. We handle the complexities of payroll so you don't have to.</p>
+                    <ul class="service-features">
+                        <li>Payroll Processing</li>
+                        <li>Tax Filing & Compliance</li>
+                        <li>Direct Deposit Setup</li>
+                        <li>Year-End Reporting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-check"></i>
                     </div>
-                    <div class="service-card">
-                        <i class="fas fa-chart-pie"></i>
-                        <h3>Reporting</h3>
-                        <p>Comprehensive financial reporting that provides clear insights into your business performance.</p>
+                    <h3>Audit & Assurance</h3>
+                    <p>Professional audit services to ensure the accuracy and integrity of your financial information. We provide thorough reviews and independent assessments of your financial statements.</p>
+                    <ul class="service-features">
+                        <li>Financial Statement Audits</li>
+                        <li>Internal Control Reviews</li>
+                        <li>Compliance Audits</li>
+                        <li>Risk Assessment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>Ready to Get Started?</h2>
+                <p>Contact us today to discuss how we can help your business succeed</p>
+                <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CSRInsights</h3>
+                    <p>Professional accounting and business advisory services you can trust.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 CSRInsights. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CSRInsights. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 

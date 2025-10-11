@@ -3,155 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | CSRInsights</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Contact Us - CSRInsights</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-
-<header class="header">
-    <div class="top-bar">
+    <!-- Navigation -->
+    <nav class="navbar">
         <div class="container">
-            <a href="login.html" class="client-portal-link">Client Portal Login</a>
-        </div>
-    </div>
-    <div class="main-header container">
-        <a href="index.html" class="logo">
-            <img src="logo.png" alt="CSRInsights Logo">
-            <span>CSRInsights</span>
-        </a>
-        <nav class="main-nav">
-            <ul>
-                <li class="has-dropdown">
-                    <a href="services.html">Services</a>
-                    <button class="dropdown-toggle" aria-expanded="false" aria-label="Toggle Submenu"></button>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-section">
-                            <h4>Accounting & Reporting</h4>
-                            <a href="#">Bookkeeping</a>
-                            <a href="#">Accounting</a>
-                        </div>
-                        <div class="dropdown-section">
-                            <h4>Compliance & Payroll</h4>
-                            <a href="#">Audit Preparation & Support</a>
-                            <a href="#">Payroll Services</a>
-                        </div>
-                        <div class="dropdown-section">
-                            <h4>Financial Management & Strategy</h4>
-                            <a href="#">CFO Services</a>
-                            <a href="#">Financial Planning & Analysis (FP&A)</a>
-                        </div>
-                         <div class="dropdown-section">
-                            <h4>Transaction Services</h4>
-                            <a href="#">M&A  Advisory and Support</a>
-                            <a href="#">Capital & Funding Support</a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="about.html">About us</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-            </ul>
-        </nav>
-        <button id="mobile-menu-toggle" class="mobile-menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-</header>
-
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>Contact Our Team</h1>
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>CSRInsights</h1>
+                    <p class="tagline">Accounting & Advisory</p>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <section class="page-section">
-            <div class="container">
-                <div class="office-locations-grid">
-                    <div class="location-card">
-                        <h3>India - Head Office</h3>
-                        <p>123 Innovation Park<br>Cambridge, CB4 0GF<br>United Kingdom</p>
-                        <a href="tel:01223123456">P: 01223 123 456</a>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Get In Touch</h1>
+            <p>We'd love to hear from you and discuss how we can help</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <p>Reach out to us through any of the following channels. We're here to help you succeed.</p>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>(555) 123-4567</p>
+                            <p class="small">Mon-Fri: 9:00 AM - 6:00 PM</p>
+                        </div>
                     </div>
-                    <div class="location-card">
-                        <h3>Cambridge Office</h3>
-                        <p>45 King's Cross<br>Cambridge, CB4 0GF<br>United Kingdom</p>
-                        <a href="tel:02071234567">P: 0207 123 4567</a>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@csrinsights.com</p>
+                            <p class="small">We'll respond within 24 hours</p>
+                        </div>
                     </div>
-                    <div class="location-card">
-                        <h3> Office</h3>
-                        <p>789 Tech Avenue<br>Manchester, M1 1AD<br>United Kingdom</p>
-                        <a href="tel:01611234567">P: 0161 123 4567</a>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Business Avenue<br>Suite 100<br>Your City, ST 12345</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Business Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p>Saturday: 10:00 AM - 2:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+
+                    <div class="social-contact">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <h2>Send Us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="tax">Tax Services</option>
+                            <option value="bookkeeping">Bookkeeping</option>
+                            <option value="advisory">Business Advisory</option>
+                            <option value="payroll">Payroll Services</option>
+                            <option value="audit">Audit & Assurance</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Tell us how we can help you..." rows="6" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section (Placeholder) -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Visit Our Office</h2>
+            <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt"></i>
+                <p>Map Location</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CSRInsights</h3>
+                    <p>Professional accounting and business advisory services you can trust.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section class="page-section alt-bg">
-            <div class="container">
-                <h2>Talk to a CSRInsights Expert</h2>
-                <form class="detailed-contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="first-name">First name*</label>
-                            <input type="text" id="first-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="last-name">Last name</label>
-                            <input type="text" id="last-name" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email*</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone number</label>
-                            <input type="tel" id="phone">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                         <div class="form-group">
-                            <label for="company-name">Company name</label>
-                            <input type="text" id="company-name">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="services">Interested Services*</label>
-                            <select id="services" required>
-                                <option value="">Please Select</option>
-                                <option value="accounting">Accounting & Reporting</option>
-                                <option value="tax">Compliance & Payroll</option>
-                                <option value="strategy">Financial Management & Strategy</option>
-                                <option value="transaction">Transaction Services</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="comments">Comments</label>
-                            <textarea id="comments" rows="5"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <button type="submit" class="cta-button">Submit</button>
-                    </div>
-                </form>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CSRInsights. All rights reserved.</p>
             </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 CSRInsights. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-</html>
+</html>group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                    
+                    <div class="form-
