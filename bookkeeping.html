@@ -3,167 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookkeeping Services | CSRInsights</title>
-    <link rel="icon" href="logo.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>About Us - CSRInsights</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-
-<header class="header">
-    <div class="top-bar">
+    <!-- Navigation -->
+    <nav class="navbar">
         <div class="container">
-            <a href="login.html" class="client-portal-link">Client Portal Login</a>
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="CSRInsights Logo" class="logo-image">
+                    <span class="logo-text">CSRInsights</span>
+                </a>
+                <div class="nav-center" id="navMenu">
+                    <ul class="nav-menu">
+                        <li><a href="about.html">About Us</a></li>
+                        <li class="nav-dropdown">
+                            <a href="services.html" class="services-link">Our Services</a>
+                            <span class="dropdown-toggle" id="dropdownToggle"><i class="fas fa-chevron-down"></i></span>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-container">
+                                    <div class="dropdown-column">
+                                        <h4>Accounting & Reporting</h4>
+                                        <a href="bookkeeping.html">Bookkeeping</a>
+                                        <a href="accounting.html">Accounting</a>
+                                        <a href="controller-services.html">Controller Services</a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <h4>Financial Management & Strategy</h4>
+                                        <a href="cfo-services.html">CFO Services</a>
+                                        <a href="fpa.html">Financial Planning & Analysis</a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <h4>Compliance & Payroll</h4>
+                                        <a href="audit.html">Audit Preparation & Support</a>
+                                        <a href="payroll.html">Payroll Services</a>
+                                    </div>
+                                    <div class="dropdown-column">
+                                        <h4>Transaction Services</h4>
+                                        <a href="staffaugmentation.html">Staff augmentation</a>
+                                        <a href="p2p.html">P2P</a>
+                                        <a href="o2c.html">O2C</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="contact.html">Contact us</a></li>
+                    </ul>
+                    <div class="nav-right">
+                        <i class="fas fa-search nav-search" id="searchIcon"></i>
+                        <div class="nav-socials">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-icons">
+                    <i class="fas fa-search mobile-search" id="mobileSearchIcon"></i>
+                    <div class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="main-header container">
-        <a href="index.html" class="logo">
-            <img src="logo.png" alt="CSRInsights Logo">
-            <span>CSRInsights</span>
-        </a>
-        <nav class="main-nav">
-            <ul>
-                <li class="has-dropdown">
-                    <a href="services.html">Services</a>
-                    <button class="dropdown-toggle" aria-expanded="false" aria-label="Toggle Submenu"></button>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-section">
-                            <h4>Accounting & Reporting</h4>
-                            <a href="bookkeeping.html">Bookkeeping</a>
-                            <a href="#">Accounting</a>
-                        </div>
-                        <div class="dropdown-section">
-                            <h4>Compliance & Payroll</h4>
-                            <a href="#">Audit Preparation & Support</a>
-                            <a href="#">Payroll Services</a>
-                        </div>
-                        <div class="dropdown-section">
-                            <h4>Financial Management & Strategy</h4>
-                            <a href="#">CFO Services</a>
-                            <a href="#">Financial Planning & Analysis (FP&A)</a>
-                        </div>
-                         <div class="dropdown-section">
-                            <h4>Transaction Services</h4>
-                            <a href="#">M&A  Advisory and Support</a>
-                            <a href="#">Capital & Funding Support</a>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="about.html">About us</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-            </ul>
-        </nav>
-        <button id="mobile-menu-toggle" class="mobile-menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-</header>
-
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h1>Professional Bookkeeping Services</h1>
-            </div>
-        </section>
-
-        <section class="page-section">
-            <div class="container content-section">
-                <h2 style="text-align: center;">Accurate, Compliant, and Stress-Free Bookkeeping</h2>
-                <p class="section-intro">At CSRInsights, we provide meticulous bookkeeping services designed to give you peace of mind and more time to focus on what you do best—running your business. We handle your day-to-day financial records, ensuring they are always accurate, up-to-date, and fully compliant with UK regulations.</p>
-            </div>
-        </section>
         
-        <section class="page-section alt-bg">
+        <!-- Search Box -->
+        <div class="search-box" id="searchBox">
             <div class="container">
-                <h2 class="section-title">Our Bookkeeping Services Include:</h2>
-                <div class="feature-grid-three-col">
-                    <div class="info-card">
-                        <i class="fas fa-cash-register"></i>
-                        <h4>Daily Transaction Recording</h4>
-                        <p>We accurately record all your sales, purchases, receipts, and payments.</p>
-                    </div>
-                     <div class="info-card">
-                        <i class="fas fa-scale-balanced"></i>
-                        <h4>Bank Reconciliation</h4>
-                        <p>We cross-reference your books with bank statements to ensure perfect accuracy.</p>
-                    </div>
-                     <div class="info-card">
-                        <i class="fas fa-exchange-alt"></i>
-                        <h4>Accounts Payable & Receivable</h4>
-                        <p>We manage your supplier invoices and chase customer payments to maintain healthy cash flow.</p>
-                    </div>
-                     <div class="info-card">
-                        <i class="fas fa-file-invoice"></i>
-                        <h4>VAT Return Preparation</h4>
-                        <p>We ensure your VAT returns are prepared correctly and submitted on time, keeping you compliant.</p>
-                    </div>
-                     <div class="info-card">
-                        <i class="fas fa-chart-pie"></i>
-                        <h4>Monthly Financial Reports</h4>
-                        <p>Receive clear reports to understand your business performance at a glance.</p>
-                    </div>
-                     <div class="info-card">
-                        <i class="fas fa-users"></i>
-                        <h4>Payroll Support</h4>
-                        <p>We can assist with payroll processing to ensure your team is paid correctly and on time.</p>
-                    </div>
+                <div class="search-box-content">
+                    <input type="text" class="search-input" placeholder="Search" id="searchInput">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <section class="page-section">
-            <div class="container">
-                <h2 class="section-title">Benefits of Outsourcing to CSRInsights</h2>
-                 <div class="feature-grid-three-col">
-                    <div class="info-card">
-                        <i class="fas fa-clock"></i>
-                        <h4>Save Valuable Time</h4>
-                        <p>Free yourself from time-consuming administrative tasks and focus on strategic activities.</p>
-                    </div>
-                     <div class="info-card">
-                        <i class="fas fa-check-double"></i>
-                        <h4>Ensure Accuracy</h4>
-                        <p>Our expert team reduces the risk of costly errors, giving you confidence in your financial data.</p>
-                    </div>
-                     <div class="info-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Stay Compliant</h4>
-                        <p>We stay up-to-date with the latest HMRC regulations so you don't have to.</p>
-                    </div>
-                     <div class="info-card">
-                        <i class="fas fa-lightbulb"></i>
-                        <h4>Gain Financial Clarity</h4>
-                        <p>With real-time reporting, you'll have the insights needed to make informed decisions.</p>
-                    </div>
-                     <div class="info-card">
-                        <i class="fas fa-piggy-bank"></i>
-                        <h4>Cost-Effective Expertise</h4>
-                        <p>Access a professional finance team at a fraction of the cost of an in-house bookkeeper.</p>
-                    </div>
-                     <div class="info-card">
-                        <i class="fas fa-headset"></i>
-                        <h4>Dedicated Support</h4>
-                        <p>You'll have a dedicated account manager who understands your business inside and out.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- Change body here -->
 
-        <section class="page-section alt-bg">
-            <div class="container" style="text-align: center;">
-                <h2>Ready to streamline your finances?</h2>
-                <p class="section-intro">Let's talk about how our bookkeeping services can support your business. Schedule a free, no-obligation consultation today.</p>
-                <a href="consultation.html" class="cta-button">Book a Consultation</a>
-            </div>
-        </section>
-    </main>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Work With Us?</h2>
+            <p>Let's discuss how we can help you achieve your financial goals</p>
+            <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+        </div>
+    </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 CSRInsights. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CSRInsights</h3>
+                    <p>Professional accounting and business advisory services you can trust.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CSRInsights. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 

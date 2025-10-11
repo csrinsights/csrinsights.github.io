@@ -49,30 +49,79 @@ if (searchInput) {
     });
 }
 
-// Mobile dropdown toggle - prevent navigation
-const dropdownToggle = document.getElementById('dropdownToggle');
+// Mobile dropdown and hamburger menu
 const navDropdown = document.querySelector('.nav-dropdown');
+const dropdownToggle = document.getElementById('dropdownToggle');
 const servicesLink = document.querySelector('.services-link');
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
 
-if (dropdownToggle) {
-    dropdownToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (navDropdown) {
+// Toggle dropdown in mobile - clicking anywhere in nav-dropdown area
+if (navDropdown) {
+    navDropdown.addEventListener('click', (e) => {
+        // Only prevent default and toggle on mobile
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            e.stopPropagation();
             navDropdown.classList.toggle('active');
         }
     });
 }
 
-// Prevent services link from navigating on mobile when dropdown is active
-if (servicesLink && window.innerWidth <= 768) {
+// Also make dropdown toggle clickable separately
+if (dropdownToggle) {
+    dropdownToggle.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            e.stopPropagation();
+            navDropdown.classList.toggle('active');
+        }
+    });
+}
+
+// Also make services link clickable for dropdown toggle
+if (servicesLink) {
     servicesLink.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
             e.preventDefault();
+            e.stopPropagation();
+            navDropdown.classList.toggle('active');
+        }
+    });
+}
+
+// On desktop, allow services link to navigate
+if (servicesLink && window.innerWidth > 768) {
+    servicesLink.style.pointerEvents = 'auto';
+}
+
+// Hamburger menu toggle
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+
+        // Close dropdown when hamburger menu closes
+        if (!navMenu.classList.contains('active')) {
             if (navDropdown) {
-                navDropdown.classList.toggle('active');
+                navDropdown.classList.remove('active');
             }
         }
+    });
+
+    // Close menu when clicking on a link (except services link which toggles dropdown)
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Don't close menu if clicking on services link
+            if (!link.classList.contains('services-link')) {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                if (navDropdown) {
+                    navDropdown.classList.remove('active');
+                }
+            }
+        });
     });
 }
 
@@ -132,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Auto play slider
         function startSlider() {
-            slideInterval = setInterval(nextSlide, 5000);
+            slideInterval = setInterval(nextSlide, 3000);
         }
 
         function stopSlider() {
@@ -182,26 +231,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
-
-// Mobile Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
-
-if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
-
-    // Close menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-        });
-    });
-}
 
 // Smooth Scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
