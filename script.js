@@ -1,166 +1,187 @@
-// Search Overlay Functionality
+// Search Box Functionality (Small version)
 const searchIcon = document.getElementById('searchIcon');
 const mobileSearchIcon = document.getElementById('mobileSearchIcon');
-const searchOverlay = document.getElementById('searchOverlay');
-const searchClose = document.getElementById('searchClose');
+const searchBox = document.getElementById('searchBox');
 const searchInput = document.getElementById('searchInput');
 
-function openSearch() {
-    if (searchOverlay) {
-        searchOverlay.classList.add('active');
-        setTimeout(() => {
-            if (searchInput) searchInput.focus();
-        }, 300);
-    }
-}
-
-function closeSearch() {
-    if (searchOverlay) {
-        searchOverlay.classList.remove('active');
-        if (searchInput) searchInput.value = '';
+function toggleSearch() {
+    if (searchBox) {
+        searchBox.classList.toggle('active');
+        if (searchBox.classList.contains('active')) {
+            setTimeout(() => {
+                if (searchInput) searchInput.focus();
+            }, 300);
+        }
     }
 }
 
 if (searchIcon) {
-    searchIcon.addEventListener('click', openSearch);
+    searchIcon.addEventListener('click', toggleSearch);
 }
 
 if (mobileSearchIcon) {
-    mobileSearchIcon.addEventListener('click', openSearch);
+    mobileSearchIcon.addEventListener('click', toggleSearch);
 }
 
-if (searchClose) {
-    searchClose.addEventListener('click', closeSearch);
-}
-
-if (searchOverlay) {
-    searchOverlay.addEventListener('click', (e) => {
-        if (e.target === searchOverlay) {
-            closeSearch();
+// Close search when clicking outside
+document.addEventListener('click', (e) => {
+    if (searchBox && searchBox.classList.contains('active')) {
+        if (!searchBox.contains(e.target) && 
+            e.target !== searchIcon && 
+            e.target !== mobileSearchIcon) {
+            searchBox.classList.remove('active');
         }
-    });
-}
-
-// Close search with Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && searchOverlay && searchOverlay.classList.contains('active')) {
-        closeSearch();
     }
 });
 
-// Handle search form submission (you can customize this)
+// Handle search form submission
 if (searchInput) {
     searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             const searchQuery = searchInput.value.trim();
             if (searchQuery) {
-                // Redirect to search results page or handle search
                 console.log('Searching for:', searchQuery);
-                // Example: window.location.href = `search.html?q=${encodeURIComponent(searchQuery)}`;
+                // Redirect to search results page
+                // window.location.href = `search.html?q=${encodeURIComponent(searchQuery)}`;
                 alert(`Searching for: ${searchQuery}`);
-                closeSearch();
             }
         }
     });
 }
 
-// Mobile dropdown toggle
+// Mobile dropdown toggle - prevent navigation
+const dropdownToggle = document.getElementById('dropdownToggle');
 const navDropdown = document.querySelector('.nav-dropdown');
-if (navDropdown) {
-    navDropdown.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-            e.preventDefault();
+const servicesLink = document.querySelector('.services-link');
+
+if (dropdownToggle) {
+    dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (navDropdown) {
             navDropdown.classList.toggle('active');
         }
     });
 }
 
-// Hero Slider Functionality
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-const prevBtn = document.getElementById('prevSlide');
-const nextBtn = document.getElementById('nextSlide');
-let slideInterval;
+// Prevent services link from navigating on mobile when dropdown is active
+if (servicesLink && window.innerWidth <= 768) {
+    servicesLink.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            if (navDropdown) {
+                navDropdown.classList.toggle('active');
+            }
+        }
+    });
+}
 
-// Function to show specific slide
-function showSlide(n) {
-    if (slides.length === 0) return; // Exit if no slides
-    
-    // Wrap around
-    if (n >= slides.length) {
-        currentSlide = 0;
-    } else if (n < 0) {
-        currentSlide = slides.length - 1;
-    } else {
-        currentSlide = n;
+// Update on window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && navDropdown) {
+        navDropdown.classList.remove('active');
     }
-    
-    // Remove active class from all slides and dots
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-    
-    // Add active class to current slide and dot
-    slides[currentSlide].classList.add('active');
-    if (dots[currentSlide]) {
-        dots[currentSlide].classList.add('active');
-    }
-}
-
-// Next slide
-function nextSlide() {
-    showSlide(currentSlide + 1);
-}
-
-// Previous slide
-function prevSlide() {
-    showSlide(currentSlide - 1);
-}
-
-// Auto play slider
-function startSlider() {
-    slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-}
-
-function stopSlider() {
-    clearInterval(slideInterval);
-}
-
-// Event listeners for arrows
-if (prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        stopSlider();
-        startSlider(); // Restart timer after manual navigation
-    });
-
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        stopSlider();
-        startSlider();
-    });
-}
-
-// Event listeners for dots
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        showSlide(index);
-        stopSlider();
-        startSlider();
-    });
 });
 
-// Pause slider on hover
-const sliderContainer = document.querySelector('.slider-container');
-if (sliderContainer) {
-    sliderContainer.addEventListener('mouseenter', stopSlider);
-    sliderContainer.addEventListener('mouseleave', startSlider);
-}
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Hero Slider Functionality
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    
+    if (slides.length > 0) {
+        let currentSlide = 0;
+        let slideInterval;
 
-// Start slider if slides exist
-if (slides.length > 0) {
-    startSlider();
-}
+        // Function to show specific slide
+        function showSlide(n) {
+            // Wrap around
+            if (n >= slides.length) {
+                currentSlide = 0;
+            } else if (n < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = n;
+            }
+            
+            // Remove active class from all slides and dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Add active class to current slide and dot
+            if (slides[currentSlide]) {
+                slides[currentSlide].classList.add('active');
+            }
+            if (dots[currentSlide]) {
+                dots[currentSlide].classList.add('active');
+            }
+        }
+
+        // Next slide
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Previous slide
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Auto play slider
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopSlider() {
+            clearInterval(slideInterval);
+        }
+
+        // Event listeners for arrows
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                stopSlider();
+                startSlider();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                stopSlider();
+                startSlider();
+            });
+        }
+
+        // Event listeners for dots
+        dots.forEach(function(dot, index) {
+            dot.addEventListener('click', function() {
+                showSlide(index);
+                stopSlider();
+                startSlider();
+            });
+        });
+
+        // Pause slider on hover
+        const sliderContainer = document.querySelector('.slider-container');
+        if (sliderContainer) {
+            sliderContainer.addEventListener('mouseenter', stopSlider);
+            sliderContainer.addEventListener('mouseleave', startSlider);
+        }
+
+        // Initialize first slide
+        showSlide(0);
+        
+        // Start auto-rotation
+        startSlider();
+        
+        console.log('Slider initialized with', slides.length, 'slides');
+    }
+
+});
 
 // Mobile Menu Toggle
 const hamburger = document.getElementById('hamburger');

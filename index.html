@@ -8,20 +8,31 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <a href="tel:+15551234567" class="phone-link">
+                    <span>(555) 123-4567</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-wrapper">
-                <div class="logo">
-                    <h1>CSRInsights</h1>
-                    <p class="tagline">Accounting & Advisory</p>
-                </div>
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="CSRInsights Logo" class="logo-image">
+                    <span class="logo-text">CSRInsights</span>
+                </a>
                 <div class="nav-center" id="navMenu">
                     <ul class="nav-menu">
-                        <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li class="nav-dropdown">
-                            <a href="services.html">Our Services</a>
+                            <a href="services.html" class="services-link">Our Services</a>
+                            <span class="dropdown-toggle" id="dropdownToggle"><i class="fas fa-chevron-down"></i></span>
                             <div class="dropdown-menu">
                                 <div class="dropdown-container">
                                     <div class="dropdown-column">
@@ -78,13 +89,15 @@
             </div>
         </div>
         
-        <!-- Search Overlay -->
-        <div class="search-overlay" id="searchOverlay">
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search..." id="searchInput">
-                <button class="search-close" id="searchClose">
-                    <i class="fas fa-times"></i>
-                </button>
+        <!-- Search Box -->
+        <div class="search-box" id="searchBox">
+            <div class="container">
+                <div class="search-box-content">
+                    <input type="text" class="search-input" placeholder="Search" id="searchInput">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
