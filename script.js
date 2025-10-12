@@ -301,6 +301,22 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+// Scroll animation for home service cards
+const homeServiceObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            // Add staggered delay for each card
+            setTimeout(() => {
+                entry.target.classList.add('animate-in');
+            }, entry.target.dataset.index * 100);
+            homeServiceObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+});
+
 // Observe elements when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Animate service cards
@@ -328,6 +344,13 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transform = 'translateY(20px)';
         card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
         observer.observe(card);
+    });
+
+    // Animate home service cards with staggered effect
+    const homeServiceCards = document.querySelectorAll('.home-service-card');
+    homeServiceCards.forEach((card, index) => {
+        card.dataset.index = index;
+        homeServiceObserver.observe(card);
     });
 
     // Set active nav link based on current page
