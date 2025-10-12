@@ -940,16 +940,19 @@ body {
 /* Why Choose Us / Features */
 .why-choose {
     padding: 80px 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&h=900&fit=crop');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: var(--bg-white);
+    position: relative;
 }
 
 .why-choose .section-title {
-    color: var(--text-light);
-    margin-bottom: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.why-choose .section-subtitle {
+    color: #666;
+    margin-bottom: 3rem;
 }
 
 .why-us-grid {
@@ -1009,31 +1012,54 @@ body {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3rem;
+}
+
+@media (max-width: 968px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 580px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 }
 
 .feature-item {
     text-align: center;
     padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
 }
 
 .feature-item i {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
 }
 
 .feature-item h3 {
-    color: var(--primary-color);
+    color: var(--text-dark);
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .feature-item p {
     color: #666;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-size: 1rem;
+    margin: 0;
 }
 
 /* Mission & Values */
@@ -2137,6 +2163,32 @@ body {
 }
 
 @media (max-width: 768px) {
+    .process-steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .process-step {
+        padding: 1.5rem;
+    }
+
+    .process-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .process-step h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .process-step p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -2377,6 +2429,22 @@ body {
 }
 
 @media (max-width: 480px) {
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .process-step {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .process-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
     .hero-title {
         font-size: 1.6rem;
     }
