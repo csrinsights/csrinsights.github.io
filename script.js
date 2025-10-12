@@ -56,19 +56,7 @@ const servicesLink = document.querySelector('.services-link');
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
-// Toggle dropdown in mobile - clicking anywhere in nav-dropdown area
-if (navDropdown) {
-    navDropdown.addEventListener('click', (e) => {
-        // Only prevent default and toggle on mobile
-        if (window.innerWidth <= 768) {
-            e.preventDefault();
-            e.stopPropagation();
-            navDropdown.classList.toggle('active');
-        }
-    });
-}
-
-// Also make dropdown toggle clickable separately
+// Make dropdown toggle clickable
 if (dropdownToggle) {
     dropdownToggle.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
@@ -79,7 +67,7 @@ if (dropdownToggle) {
     });
 }
 
-// Also make services link clickable for dropdown toggle
+// Make services link clickable for dropdown toggle
 if (servicesLink) {
     servicesLink.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
@@ -101,11 +89,9 @@ if (hamburger && navMenu) {
         navMenu.classList.toggle('active');
         hamburger.classList.toggle('active');
 
-        // Close dropdown when hamburger menu closes
-        if (!navMenu.classList.contains('active')) {
-            if (navDropdown) {
-                navDropdown.classList.remove('active');
-            }
+        // Always close dropdown when hamburger menu opens or closes
+        if (navDropdown) {
+            navDropdown.classList.remove('active');
         }
     });
 
@@ -123,6 +109,18 @@ if (hamburger && navMenu) {
             }
         });
     });
+
+    // Also close menu when clicking on dropdown menu links
+    const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            if (navDropdown) {
+                navDropdown.classList.remove('active');
+            }
+        });
+    });
 }
 
 // Update on window resize
@@ -134,7 +132,13 @@ window.addEventListener('resize', () => {
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    
+
+    // Ensure dropdown is closed on page load
+    const navDropdown = document.querySelector('.nav-dropdown');
+    if (navDropdown) {
+        navDropdown.classList.remove('active');
+    }
+
     // Hero Slider Functionality
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
