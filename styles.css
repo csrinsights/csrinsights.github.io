@@ -31,33 +31,39 @@ body {
 
 /* Service Hero Section */
 .service-hero {
-    padding: 20px 0;
+    padding: 0;
     color: var(--text-light);
-    margin-top: 110px;
+    margin-top: 85px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
 }
 
 .service-hero.compact-hero {
-    padding: 15px 0;
+    min-height: 100px;
 }
 
 .service-hero-content {
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
+    padding: 0;
+    line-height: 1;
 }
 
 .service-hero-title {
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
     text-align: center;
+    line-height: 1;
 }
 
 .service-hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: center;
     margin: 0;
-    line-height: 1.3;
+    line-height: 1;
 }
 
 .hero-feature-grid {
@@ -115,7 +121,7 @@ body {
 .top-bar {
     background: var(--bg-white);
     border-bottom: 1px solid #e5e5e5;
-    padding: 0.5rem 0;
+    padding: 0.25rem 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -147,7 +153,7 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
-    top: 42px;
+    top: 32px;
     z-index: 1000;
 }
 
@@ -155,7 +161,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
 }
 
 .logo {
@@ -1432,7 +1438,7 @@ body {
 
 /* Service Details Section */
 .service-details-section {
-    padding: 4rem 0;
+    padding: 2rem 0;
 }
 
 .text-center {
@@ -2065,7 +2071,7 @@ body {
 
 /* Services Grid Section Enhancement */
 .services-grid-section {
-    padding: 4rem 0;
+    padding: 2rem 0;
     background: var(--bg-light);
 }
 
