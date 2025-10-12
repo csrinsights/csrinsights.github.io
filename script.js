@@ -367,41 +367,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // SERVICE PAGE INTERACTIVE FEATURES
     // ======================================
 
-    // Stats Counter Animation
-    const statNumbers = document.querySelectorAll('.stat-number');
-    let hasAnimated = false;
-
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !hasAnimated) {
-                hasAnimated = true;
-                statNumbers.forEach(stat => {
-                    const target = parseInt(stat.getAttribute('data-count'));
-                    const duration = 2000; // 2 seconds
-                    const increment = target / (duration / 16); // 60fps
-                    let current = 0;
-
-                    const updateCounter = () => {
-                        current += increment;
-                        if (current < target) {
-                            stat.textContent = Math.floor(current).toLocaleString();
-                            requestAnimationFrame(updateCounter);
-                        } else {
-                            stat.textContent = target.toLocaleString() + (stat.textContent.includes('%') ? '' : '');
-                        }
-                    };
-
-                    updateCounter();
-                });
-            }
-        });
-    }, { threshold: 0.5 });
-
-    const statsSection = document.querySelector('.stats-section');
-    if (statsSection) {
-        statsObserver.observe(statsSection);
-    }
-
     // Testimonials Carousel
     const testimonialSlides = document.querySelectorAll('.testimonial-slide');
     const testimonialDots = document.querySelectorAll('.testimonial-dot');
@@ -540,33 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
         splitObserver.observe(section);
     });
 
-    // Timeline Items Animation
-    const timelineItems = document.querySelectorAll('.timeline-item');
 
-    const timelineObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '0';
-                    entry.target.style.transform = 'translateY(30px)';
-                    entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, 50);
-                }, Array.from(timelineItems).indexOf(entry.target) * 150);
-
-                timelineObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.2
-    });
-
-    timelineItems.forEach(item => {
-        timelineObserver.observe(item);
-    });
 
     // Process Steps Animation
     const processSteps = document.querySelectorAll('.process-step');
