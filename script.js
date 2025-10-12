@@ -362,4 +362,293 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.add('active');
         }
     });
+
+    // ======================================
+    // SERVICE PAGE INTERACTIVE FEATURES
+    // ======================================
+
+    // Stats Counter Animation
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let hasAnimated = false;
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-count'));
+                    const duration = 2000; // 2 seconds
+                    const increment = target / (duration / 16); // 60fps
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            stat.textContent = Math.floor(current).toLocaleString();
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            stat.textContent = target.toLocaleString() + (stat.textContent.includes('%') ? '' : '');
+                        }
+                    };
+
+                    updateCounter();
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
+
+    // Testimonials Carousel
+    const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+    const testimonialDots = document.querySelectorAll('.testimonial-dot');
+    let currentTestimonial = 0;
+    let testimonialInterval;
+
+    function showTestimonial(n) {
+        if (testimonialSlides.length === 0) return;
+
+        if (n >= testimonialSlides.length) {
+            currentTestimonial = 0;
+        } else if (n < 0) {
+            currentTestimonial = testimonialSlides.length - 1;
+        } else {
+            currentTestimonial = n;
+        }
+
+        testimonialSlides.forEach(slide => slide.classList.remove('active'));
+        testimonialDots.forEach(dot => dot.classList.remove('active'));
+
+        if (testimonialSlides[currentTestimonial]) {
+            testimonialSlides[currentTestimonial].classList.add('active');
+        }
+        if (testimonialDots[currentTestimonial]) {
+            testimonialDots[currentTestimonial].classList.add('active');
+        }
+    }
+
+    function nextTestimonial() {
+        showTestimonial(currentTestimonial + 1);
+    }
+
+    function startTestimonialSlider() {
+        testimonialInterval = setInterval(nextTestimonial, 6000);
+    }
+
+    function stopTestimonialSlider() {
+        clearInterval(testimonialInterval);
+    }
+
+    testimonialDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showTestimonial(index);
+            stopTestimonialSlider();
+            startTestimonialSlider();
+        });
+    });
+
+    if (testimonialSlides.length > 0) {
+        startTestimonialSlider();
+
+        const testimonialCarousel = document.querySelector('.testimonials-carousel');
+        if (testimonialCarousel) {
+            testimonialCarousel.addEventListener('mouseenter', stopTestimonialSlider);
+            testimonialCarousel.addEventListener('mouseleave', startTestimonialSlider);
+        }
+    }
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Close all FAQ items
+            faqItems.forEach(faq => faq.classList.remove('active'));
+
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // Scroll Animation for Service Page Elements
+    const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                scrollObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    animateOnScrollElements.forEach(element => {
+        scrollObserver.observe(element);
+    });
+
+    // Split Section Animation
+    const splitSections = document.querySelectorAll('.split-section');
+
+    const splitObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const splitImage = entry.target.querySelector('.split-image');
+                const splitText = entry.target.querySelector('.split-text');
+
+                if (splitImage) {
+                    splitImage.style.opacity = '0';
+                    splitImage.style.transform = 'translateX(-30px)';
+                    splitImage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+
+                    setTimeout(() => {
+                        splitImage.style.opacity = '1';
+                        splitImage.style.transform = 'translateX(0)';
+                    }, 100);
+                }
+
+                if (splitText) {
+                    splitText.style.opacity = '0';
+                    splitText.style.transform = 'translateX(30px)';
+                    splitText.style.transition = 'opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s';
+
+                    setTimeout(() => {
+                        splitText.style.opacity = '1';
+                        splitText.style.transform = 'translateX(0)';
+                    }, 100);
+                }
+
+                splitObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    splitSections.forEach(section => {
+        splitObserver.observe(section);
+    });
+
+    // Timeline Items Animation
+    const timelineItems = document.querySelectorAll('.timeline-item');
+
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(30px)';
+                    entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 50);
+                }, Array.from(timelineItems).indexOf(entry.target) * 150);
+
+                timelineObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    timelineItems.forEach(item => {
+        timelineObserver.observe(item);
+    });
+
+    // Process Steps Animation
+    const processSteps = document.querySelectorAll('.process-step');
+
+    const processObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(30px)';
+                    entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 50);
+                }, Array.from(processSteps).indexOf(entry.target) * 150);
+
+                processObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    processSteps.forEach(step => {
+        processObserver.observe(step);
+    });
+
+    // Related Services Cards Animation
+    const relatedServiceCards = document.querySelectorAll('.related-service-card');
+
+    const relatedObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(30px)';
+                    entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 50);
+                }, Array.from(relatedServiceCards).indexOf(entry.target) * 150);
+
+                relatedObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    relatedServiceCards.forEach(card => {
+        relatedObserver.observe(card);
+    });
+
+    // Pricing Cards Animation
+    const pricingCards = document.querySelectorAll('.pricing-card');
+
+    const pricingObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(30px)';
+                    entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 50);
+                }, Array.from(pricingCards).indexOf(entry.target) * 150);
+
+                pricingObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    pricingCards.forEach(card => {
+        pricingObserver.observe(card);
+    });
 });
