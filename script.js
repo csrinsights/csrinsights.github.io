@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Auto play slider
         function startSlider() {
-            slideInterval = setInterval(nextSlide, 3000);
+            slideInterval = setInterval(nextSlide, 5000);
         }
 
         function stopSlider() {
