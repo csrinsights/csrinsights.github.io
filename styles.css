@@ -444,7 +444,7 @@ body {
 .page-header {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: var(--text-light);
-    padding: 120px 0 80px;
+    padding: 60px 0 40px;
     margin-top: 93px;
     text-align: center;
 }
@@ -2409,5 +2409,209 @@ body {
 
     .hero-slider {
         height: 500px;
+    }
+}
+
+/* Appointment Page Styles */
+.appointment-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+.appointment-container {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.appointment-form {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-form h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.form-intro {
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+}
+
+.form-section h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-section h3 i {
+    color: var(--accent-color);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input[type="date"] {
+    cursor: pointer;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(26, 77, 46, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn-large {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Appointment Info Sidebar */
+.appointment-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--accent-color);
+}
+
+.info-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info-card h3 i {
+    color: var(--accent-color);
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-card ul li {
+    padding: 0.5rem 0;
+    color: var(--text-dark);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.info-card ul li i {
+    color: var(--accent-color);
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.info-card p {
+    margin: 0.5rem 0;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.info-card p i {
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+}
+
+.info-card p strong {
+    color: var(--primary-color);
+}
+
+/* Responsive Design for Appointment Page */
+@media (max-width: 968px) {
+    .appointment-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .appointment-info {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .appointment-form {
+        padding: 1.5rem;
+    }
+
+    .appointment-form h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .info-card {
+        padding: 1.5rem;
     }
 }

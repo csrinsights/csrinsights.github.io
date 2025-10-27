@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - CSRInsights</title>
+    <title>Fix Appointment - CSRInsights</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
@@ -88,7 +90,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Search Box -->
         <div class="search-box" id="searchBox">
             <div class="container">
@@ -105,111 +107,127 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Get In Touch</h1>
-            <p>We'd love to hear from you and discuss how we can help</p>
+            <h1>Schedule Your Appointment</h1>
+            <p>Book a consultation with our team at your convenience</p>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact">
+    <!-- Appointment Form Section -->
+    <section class="appointment-section">
         <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2>Contact Information</h2>
-                    <p>Reach out to us through any of the following channels. We're here to help you succeed.</p>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>(555) 123-4567</p>
-                            <p class="small">Mon-Fri: 9:00 AM - 6:00 PM</p>
+            <div class="appointment-container">
+                <form class="appointment-form" id="appointmentForm">
+                    <h2>Appointment Details</h2>
+                    <p class="form-intro">Please fill in your details and select your preferred date and time for the meeting.</p>
+
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Personal Information</h3>
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
                         </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@csrinsights.com</p>
-                            <p class="small">We'll respond within 24 hours</p>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
                         </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Address</h4>
-                            <p>123 Business Avenue<br>Suite 100<br>Your City, ST 12345</p>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number (Optional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
                         </div>
                     </div>
 
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Business Hours</h4>
-                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                            <p>Saturday: 10:00 AM - 2:00 PM</p>
-                            <p>Sunday: Closed</p>
+                    <!-- Meeting Preferences -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-video"></i> Meeting Preferences</h3>
+
+                        <div class="form-group">
+                            <label for="meetingType">Meeting Platform *</label>
+                            <select id="meetingType" name="meetingType" required>
+                                <option value="">Select meeting platform</option>
+                                <option value="zoom">Zoom Meeting</option>
+                                <option value="google-meet">Google Meet</option>
+                            </select>
                         </div>
                     </div>
 
-                    <div class="social-contact">
-                        <h4>Follow Us</h4>
-                        <div class="social-links">
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <!-- Date and Time Selection -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-calendar-alt"></i> Select Date & Time</h3>
+
+                        <div class="form-group">
+                            <label for="appointmentDate">Appointment Date *</label>
+                            <input type="date" id="appointmentDate" name="appointmentDate" required>
                         </div>
+
+                        <div class="form-group">
+                            <label for="appointmentTime">Appointment Time *</label>
+                            <select id="appointmentTime" name="appointmentTime" required>
+                                <option value="">Select time slot</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="timezone">Timezone *</label>
+                            <select id="timezone" name="timezone" required>
+                                <option value="America/New_York">Eastern Time (ET)</option>
+                                <option value="America/Chicago">Central Time (CT)</option>
+                                <option value="America/Denver">Mountain Time (MT)</option>
+                                <option value="America/Los_Angeles">Pacific Time (PT)</option>
+                                <option value="Asia/Kolkata">Indian Standard Time (IST)</option>
+                                <option value="Europe/London">Greenwich Mean Time (GMT)</option>
+                                <option value="UTC">UTC</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Additional Notes -->
+                    <div class="form-section">
+                        <h3><i class="fas fa-comments"></i> Additional Information</h3>
+
+                        <div class="form-group">
+                            <label for="notes">Notes (Optional)</label>
+                            <textarea id="notes" name="notes" placeholder="Any specific topics you'd like to discuss or questions you have..." rows="4"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-check-circle"></i> Confirm Appointment
+                    </button>
+                </form>
+
+                <!-- Info Sidebar -->
+                <div class="appointment-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-clock"></i> What to Expect</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Meeting duration: 30-45 minutes</li>
+                            <li><i class="fas fa-check"></i> Meeting invite sent to your email</li>
+                            <li><i class="fas fa-check"></i> Calendar reminder included</li>
+                            <li><i class="fas fa-check"></i> Agenda provided in advance</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-info-circle"></i> Need Help?</h3>
+                        <p>If you need to reschedule or have questions about your appointment, please contact us:</p>
+                        <p><i class="fas fa-phone"></i> <strong>(555) 123-4567</strong></p>
+                        <p><i class="fas fa-envelope"></i> <strong>info@csrinsights.com</strong></p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-headset"></i> Prepare for Your Call</h3>
+                        <ul>
+                            <li><i class="fas fa-arrow-right"></i> Review your business goals</li>
+                            <li><i class="fas fa-arrow-right"></i> Prepare questions in advance</li>
+                            <li><i class="fas fa-arrow-right"></i> Have relevant documents ready</li>
+                            <li><i class="fas fa-arrow-right"></i> Test your audio/video setup</li>
+                        </ul>
                     </div>
                 </div>
-
-                <form class="contact-form" id="contactForm">
-                    <h2>Send Us a Message</h2>
-                    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
-
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number (Optional)</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email ID *</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="services">Services *</label>
-                        <select id="services" name="services" required>
-                            <option value="">Select a service</option>
-                            <option value="bookkeeping">Bookkeeping</option>
-                            <option value="accounting">Accounting</option>
-                            <option value="controller-services">Controller Services</option>
-                            <option value="cfo">CFO Services</option>
-                            <option value="financial-planning">Financial Planning & Analysis</option>
-                            <option value="audit">Audit Preparation & Support</option>
-                            <option value="payroll">Payroll Services</option>
-                            <option value="staff-augmentation">Staff Augmentation</option>
-                            <option value="p2p">P2P</option>
-                            <option value="o2c">O2C</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" placeholder="Tell us how we can help you..." rows="6" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
             </div>
         </div>
     </section>
@@ -249,4 +267,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="appointment.js"></script>
 </body>
+</html>
