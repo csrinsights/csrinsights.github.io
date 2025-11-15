@@ -254,7 +254,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Contact Form Submission
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    // Check if success parameter is in URL
+    // Check if success or error parameter is in URL
     const urlParams = new URLSearchParams(window.location.search);
     const formStatus = document.getElementById('formStatus');
 
@@ -276,6 +276,42 @@ if (contactForm) {
         }, 8000);
     }
 
+    // Check for error messages
+    const errorParam = urlParams.get('error');
+    if (errorParam && formStatus) {
+        let errorMessage = '';
+
+        switch(errorParam) {
+            case 'missing':
+                errorMessage = '<strong>Error!</strong> Please fill in all required fields.';
+                break;
+            case 'invalid_email':
+                errorMessage = '<strong>Error!</strong> Please enter a valid email address.';
+                break;
+            case 'send_failed':
+                errorMessage = '<strong>Error!</strong> Failed to send message. Please try again or contact us directly at contact@csrinsights.net';
+                break;
+            default:
+                errorMessage = '<strong>Error!</strong> Something went wrong. Please try again.';
+        }
+
+        formStatus.style.display = 'block';
+        formStatus.style.backgroundColor = '#f8d7da';
+        formStatus.style.color = '#721c24';
+        formStatus.style.border = '1px solid #f5c6cb';
+        formStatus.innerHTML = errorMessage;
+
+        // Scroll to form status
+        formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Hide error message after 8 seconds
+        setTimeout(() => {
+            formStatus.style.display = 'none';
+            // Clean up URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }, 8000);
+    }
+
     contactForm.addEventListener('submit', (e) => {
         const submitButton = contactForm.querySelector('button[type="submit"]');
 
@@ -283,8 +319,7 @@ if (contactForm) {
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
 
-        // Form will submit naturally to FormSubmit.co
-        // The _next parameter will redirect back to the contact page with success parameter
+        // Form will submit naturally to PHP handler
     });
 }
 
