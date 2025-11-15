@@ -254,65 +254,37 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Contact Form Submission
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    // Check if success parameter is in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const formStatus = document.getElementById('formStatus');
 
+    if (urlParams.get('success') === 'true' && formStatus) {
+        formStatus.style.display = 'block';
+        formStatus.style.backgroundColor = '#d4edda';
+        formStatus.style.color = '#155724';
+        formStatus.style.border = '1px solid #c3e6cb';
+        formStatus.innerHTML = '<strong>Success!</strong> Thank you for your message. We will get back to you soon.';
+
+        // Scroll to form status
+        formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Hide success message after 8 seconds
+        setTimeout(() => {
+            formStatus.style.display = 'none';
+            // Clean up URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }, 8000);
+    }
+
+    contactForm.addEventListener('submit', (e) => {
         const submitButton = contactForm.querySelector('button[type="submit"]');
-        const formStatus = document.getElementById('formStatus');
-        const originalButtonText = submitButton.textContent;
 
         // Disable button and show loading state
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
 
-        try {
-            // Submit form using FormSubmit.co
-            const formData = new FormData(contactForm);
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                // Show success message
-                if (formStatus) {
-                    formStatus.style.display = 'block';
-                    formStatus.style.backgroundColor = '#d4edda';
-                    formStatus.style.color = '#155724';
-                    formStatus.style.border = '1px solid #c3e6cb';
-                    formStatus.innerHTML = '<strong>Success!</strong> Thank you for your message. We will get back to you soon.';
-                }
-
-                // Reset form
-                contactForm.reset();
-
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    if (formStatus) {
-                        formStatus.style.display = 'none';
-                    }
-                }, 5000);
-            } else {
-                throw new Error('Form submission failed');
-            }
-        } catch (error) {
-            // Show error message
-            if (formStatus) {
-                formStatus.style.display = 'block';
-                formStatus.style.backgroundColor = '#f8d7da';
-                formStatus.style.color = '#721c24';
-                formStatus.style.border = '1px solid #f5c6cb';
-                formStatus.innerHTML = '<strong>Error!</strong> Something went wrong. Please try again or contact us directly at contact@csrinsights.net';
-            }
-            console.error('Form submission error:', error);
-        } finally {
-            // Re-enable button
-            submitButton.disabled = false;
-            submitButton.textContent = originalButtonText;
-        }
+        // Form will submit naturally to FormSubmit.co
+        // The _next parameter will redirect back to the contact page with success parameter
     });
 }
 
