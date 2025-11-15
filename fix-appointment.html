@@ -116,9 +116,12 @@
     <section class="appointment-section">
         <div class="container">
             <div class="appointment-container">
-                <form class="appointment-form" id="appointmentForm">
+                <form class="appointment-form" id="appointmentForm" action="appointment-handler.php" method="POST">
                     <h2>Appointment Details</h2>
                     <p class="form-intro">Please fill in your details and select your preferred date and time for the meeting.</p>
+
+                    <!-- Honeypot spam protection (hidden field) -->
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
                     <!-- Personal Information -->
                     <div class="form-section">
