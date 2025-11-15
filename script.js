@@ -288,6 +288,15 @@ if (contactForm) {
             case 'invalid_email':
                 errorMessage = '<strong>Error!</strong> Please enter a valid email address.';
                 break;
+            case 'invalid_length':
+                errorMessage = '<strong>Error!</strong> Your input exceeds the maximum allowed length.';
+                break;
+            case 'invalid_input':
+                errorMessage = '<strong>Error!</strong> Invalid characters detected in your submission.';
+                break;
+            case 'rate_limit':
+                errorMessage = '<strong>Error!</strong> Too many submissions. Please try again later.';
+                break;
             case 'send_failed':
                 errorMessage = '<strong>Error!</strong> Failed to send message. Please try again or contact us directly at contact@csrinsights.net';
                 break;
