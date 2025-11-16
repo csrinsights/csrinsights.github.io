@@ -7,6 +7,9 @@ header('X-XSS-Protection: 1; mode=block');
 // Start session for rate limiting
 session_start();
 
+// Load Mailjet configuration
+require_once 'mailjet-config.php';
+
 // Prevent direct access
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: /fix-appointment');
