@@ -1,0 +1,12 @@
+# robots.txt for CSRInsights
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private pages (if any)
+Disallow: /login.html
+Disallow: /.claude/
+Disallow: /*.php$
+
+# Sitemap location
+Sitemap: https://csrinsights.github.io/sitemap.xml
