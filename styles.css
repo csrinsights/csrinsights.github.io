@@ -503,6 +503,11 @@ body {
     background-repeat: no-repeat;
 }
 
+/* Adjust first slide to show people's heads properly */
+.slide:first-child .slide-image {
+    background-position: center top;
+}
+
 .slide-image::after {
     content: '';
     position: absolute;
@@ -921,6 +926,13 @@ body {
 .about-image {
     display: flex;
     justify-content: center;
+}
+
+.about-image img {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .image-placeholder {
