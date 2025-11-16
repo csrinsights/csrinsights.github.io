@@ -30,6 +30,59 @@
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Accounting Services",
+      "provider": {
+        "@type": "ProfessionalService",
+        "name": "CSRInsights",
+        "url": "https://csrinsights.github.io",
+        "telephone": "(555) 123-4567",
+        "image": "https://csrinsights.github.io/logo.png"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "description": "Comprehensive accounting services including financial statement preparation, monthly reporting, variance analysis, and tax compliance. Expert support for your business finances.",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://csrinsights.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://csrinsights.github.io/services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Accounting Services",
+          "item": "https://csrinsights.github.io/accounting"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
         <!-- Top Bar -->
