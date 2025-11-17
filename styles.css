@@ -161,7 +161,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
 }
 
 .logo {
@@ -445,7 +445,7 @@ body {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: var(--text-light);
     padding: 60px 0 40px;
-    margin-top: 93px;
+    margin-top: 92px;
     text-align: center;
 }
 
@@ -2247,11 +2247,15 @@ body {
     }
 
     .navbar {
-        top: 34px;
+        top: 0;
     }
 
     .nav-wrapper {
-        padding: 0.4rem 0;
+        padding: 0.8rem 0;
+    }
+
+    .page-header {
+        margin-top: 67px;
     }
 
     .logo {
