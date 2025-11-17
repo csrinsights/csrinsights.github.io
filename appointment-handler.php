@@ -214,7 +214,7 @@ if (!empty($notes)) {
 }
 $customer_message .= "A calendar invitation is attached to this email. Please add it to your calendar.\n";
 $customer_message .= "We will send you the meeting link shortly before the appointment.\n\n";
-$customer_message .= "If you need to reschedule or have any questions, please contact us at contact@csrinsights.net or call (555) 123-4567.\n\n";
+$customer_message .= "If you need to reschedule or have any questions, please contact us at contact@csrinsights.net\n\n";
 $customer_message .= "We look forward to speaking with you!\n\n";
 $customer_message .= "Best regards,\n";
 $customer_message .= "The CSRInsights Team\n\n";
