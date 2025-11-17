@@ -6,7 +6,11 @@
       "Bash(git add:*)",
       "Bash(git reset:*)",
       "Bash(git restore:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "Bash(gh pr create --title \"WCSR-54: add staff augmentation service block and update FPA image\" --body \"$(cat <<''EOF''\n## Summary\n- Added Staff Augmentation service card as the second item in the services section on the homepage\n- Updated Financial Management & Analysis service card image from Unsplash to local `accounting-graph.png`\n- Staff Augmentation card includes relevant description about scaling teams with experienced accounting professionals\n\n## Changes\n- Added new service card for Staff Augmentation positioned after Bookkeeping\n- Changed FPA service image to use `accounting-graph.png`\n\n## Test plan\n- [ ] Verify Staff Augmentation card appears as second service on homepage\n- [ ] Verify Staff Augmentation card links to `/staffaugmentation`\n- [ ] Verify FPA service card displays `accounting-graph.png` correctly\n- [ ] Verify all service cards maintain consistent styling\n- [ ] Test responsive layout on mobile and desktop\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\nEOF\n)\")",
+      "Bash(git cherry-pick:*)",
+      "Bash(git branch:*)"
     ],
     "deny": [],
     "ask": []
