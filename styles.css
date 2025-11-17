@@ -2426,7 +2426,8 @@ body {
     }
 
     .about-content,
-    .contact-content {
+    .contact-content,
+    .split-content {
         grid-template-columns: 1fr;
     }
 
@@ -2467,6 +2468,10 @@ body {
     .features-grid,
     .values-grid {
         grid-template-columns: 1fr;
+    }
+
+    .split-image img {
+        height: 300px;
     }
 
     .slide-content {
