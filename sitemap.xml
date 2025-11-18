@@ -2,142 +2,141 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://csrinsights.github.io/</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Main Pages -->
   <url>
-    <loc>https://csrinsights.github.io/about</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/about</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://csrinsights.github.io/services</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/services</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://csrinsights.github.io/contact</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/contact</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://csrinsights.github.io/insights</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/careers</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://csrinsights.net/insights</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://csrinsights.github.io/fix-appointment</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/fix-appointment</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Service Pages - Accounting & Reporting -->
   <url>
-    <loc>https://csrinsights.github.io/bookkeeping</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/bookkeeping</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://csrinsights.github.io/accounting</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/accounting</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
   <!-- Service Pages - Staff Augmentation -->
   <url>
-    <loc>https://csrinsights.github.io/staffaugmentation</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/staffaugmentation</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://csrinsights.github.io/bookkeeping-professional</loc>
-    <lastmod>2025-01-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://csrinsights.github.io/senior-accounting</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/bookkeeping-professional</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://csrinsights.github.io/controller-specialist</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/senior-accounting</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://csrinsights.net/controller-specialist</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Service Pages - Transaction Services -->
   <url>
-    <loc>https://csrinsights.github.io/p2p</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/p2p</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://csrinsights.github.io/o2c</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/o2c</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Service Pages - Compliance & Payroll -->
   <url>
-    <loc>https://csrinsights.github.io/audit</loc>
-    <lastmod>2025-01-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://csrinsights.github.io/payroll</loc>
-    <lastmod>2025-01-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Service Pages - Financial Management & Strategy -->
-  <url>
-    <loc>https://csrinsights.github.io/cfo-services</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/audit</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://csrinsights.github.io/fpa</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/payroll</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Additional Service Page -->
+  <!-- Service Pages - Financial Management & Strategy -->
   <url>
-    <loc>https://csrinsights.github.io/consultation</loc>
-    <lastmod>2025-01-16</lastmod>
+    <loc>https://csrinsights.net/cfo-services</loc>
+    <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://csrinsights.net/fpa</loc>
+    <lastmod>2025-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

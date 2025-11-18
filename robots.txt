@@ -9,4 +9,4 @@ Disallow: /.claude/
 Disallow: /*.php$
 
 # Sitemap location
-Sitemap: https://csrinsights.github.io/sitemap.xml
+Sitemap: https://csrinsights.net/sitemap.xml
