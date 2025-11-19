@@ -5,78 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const timezoneSelect = document.getElementById('timezone');
     const timeSlotSelect = document.getElementById('appointmentTime');
 
-    // Check for success/error messages in URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const success = urlParams.get('success');
-    const error = urlParams.get('error');
-
-    if (success === 'true') {
-        showMessage('success', 'Appointment Confirmed!', 'Your appointment has been scheduled successfully. A calendar invite has been sent to your email address.');
-        // Clear URL parameters
-        window.history.replaceState({}, document.title, window.location.pathname);
-    } else if (error) {
-        let errorMessage = 'An error occurred. Please try again.';
-        switch(error) {
-            case 'rate_limit':
-                errorMessage = 'Too many submissions. Please wait an hour before trying again.';
-                break;
-            case 'missing':
-                errorMessage = 'Please fill in all required fields.';
-                break;
-            case 'invalid_email':
-                errorMessage = 'Please enter a valid email address.';
-                break;
-            case 'invalid_length':
-                errorMessage = 'Some fields exceed the maximum allowed length.';
-                break;
-            case 'invalid_date':
-                errorMessage = 'Please enter a valid date.';
-                break;
-            case 'past_date':
-                errorMessage = 'Please select a future date for your appointment.';
-                break;
-            case 'invalid_input':
-                errorMessage = 'Invalid input detected. Please check your information.';
-                break;
-            case 'send_failed':
-                errorMessage = 'Failed to send appointment confirmation. Please try again or contact us directly.';
-                break;
-        }
-        showMessage('error', 'Appointment Failed', errorMessage);
-        // Clear URL parameters
-        window.history.replaceState({}, document.title, window.location.pathname);
-    }
-
-    function showMessage(type, title, message) {
-        const messageContainer = document.getElementById('messageContainer');
-        const iconClass = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
-        const bgColor = type === 'success' ? '#4CAF50' : '#f44336';
-
-        const messageHTML = `
-            <div style="background-color: ${bgColor}; color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                <div style="display: flex; align-items: center; gap: 1rem;">
-                    <i class="fas ${iconClass}" style="font-size: 2rem;"></i>
-                    <div>
-                        <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">${title}</h3>
-                        <p style="margin: 0; opacity: 0.95;">${message}</p>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        messageContainer.innerHTML = messageHTML;
-
-        // Scroll to message
-        messageContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-        // Auto-hide success messages after 10 seconds
-        if (type === 'success') {
-            setTimeout(() => {
-                messageContainer.innerHTML = '';
-            }, 10000);
-        }
-    }
-
     // Timezone offset mapping (in hours from UTC)
     const timezoneOffsets = {
         'America/New_York': -5,      // EST (Eastern)
@@ -179,6 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Form submission handler
     if (appointmentForm) {
         appointmentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
             // Get form data
             const formData = {
                 fullName: document.getElementById('fullName').value,
@@ -194,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Validate form data
             if (!formData.fullName || !formData.email || !formData.meetingType ||
                 !formData.appointmentDate || !formData.appointmentTime) {
-                e.preventDefault();
                 alert('Please fill in all required fields.');
                 return;
             }
@@ -202,17 +131,38 @@ document.addEventListener('DOMContentLoaded', function() {
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(formData.email)) {
-                e.preventDefault();
                 alert('Please enter a valid email address.');
                 return;
             }
 
-            // Show loading state
-            const submitButton = this.querySelector('button[type="submit"]');
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Scheduling...';
-            submitButton.disabled = true;
+            // Format the appointment details for display
+            const appointmentDateTime = formatAppointmentDateTime(
+                formData.appointmentDate,
+                formData.appointmentTime,
+                formData.timezone
+            );
 
-            // Let the form submit to PHP backend
+            const meetingPlatform = formData.meetingType === 'zoom' ? 'Zoom Meeting' : 'Google Meet';
+
+            // Create confirmation message
+            const confirmationMessage = `
+Please confirm your appointment details:
+
+Name: ${formData.fullName}
+Email: ${formData.email}
+${formData.phone ? 'Phone: ' + formData.phone + '\n' : ''}
+Meeting Platform: ${meetingPlatform}
+Date & Time: ${appointmentDateTime}
+${formData.notes ? 'Notes: ' + formData.notes : ''}
+
+We will send a meeting invite to your email address.
+            `;
+
+            if (confirm(confirmationMessage)) {
+                // In a real application, this would send the data to a server
+                // For now, we'll simulate a successful submission
+                submitAppointment(formData);
+            }
         });
     }
 
