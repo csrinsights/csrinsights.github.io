@@ -6,7 +6,8 @@ Allow: /
 # Disallow admin or private pages (if any)
 Disallow: /login.html
 Disallow: /.claude/
-Disallow: /*.php$
+Disallow: /appointment-handler.php
+Disallow: /contact-handler.php
 
 # Sitemap location
 Sitemap: https://csrinsights.net/sitemap.xml
